@@ -1,0 +1,6 @@
+[submodule "third_party/strongswan"]
+	path = third_party/strongswan
+	url = git@github.com:strongswan/strongswan.git
+[submodule "third_party/gmssl"]
+	path = third_party/gmssl
+	url = git@github.com:guanzhi/GmSSL.git
