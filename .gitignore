@@ -18,3 +18,4 @@ tests/data/configs_snapshot/*.conf
 *.swp
 *.swo
 .DS_Store
+docker/configs/*.pem

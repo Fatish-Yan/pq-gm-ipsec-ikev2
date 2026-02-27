@@ -1,0 +1,61 @@
+# PQ-GM-IPSec & IKEv2 - Docker 双容器测试环境
+#
+# 网络拓扑：
+#   initiator (10.10.1.1) <---> responder (10.10.1.2)
+#
+# 用法：
+#   docker-compose up -d          # 启动容器
+#   docker-compose logs -f         # 查看日志
+#   docker-compose exec init bash  # 进入 initiator 容器
+#   docker-compose down            # 停止并清理
+
+version: '3.8'
+
+services:
+  # IKEv2 Initiator (发起方)
+  initiator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pqgm-initiator
+    hostname: initiator
+    networks:
+      pqgm_net:
+        ipv4_address: 10.10.1.1
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./configs/initiator:/etc/swanctl
+      - ./tests/data:/tests/data
+    command: sleep infinity
+
+  # IKEv2 Responder (响应方)
+  responder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pqgm-responder
+    hostname: responder
+    networks:
+      pqgm_net:
+        ipv4_address: 10.10.1.2
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./configs/responder:/etc/swanctl
+      - ./tests/data:/tests/data
+    command: sleep infinity
+
+networks:
+  pqgm_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.1.0/24
+          gateway: 10.10.1.254
