@@ -1,0 +1,20 @@
+# 敏感配置信息 - 不提交到 git
+docs/env-config/
+
+# 编译产物
+*.o
+*.so
+*.a
+*.la
+.libs/
+
+# 测试数据（保留模板，忽略实际生成的）
+tests/data/pcaps/*.pcapng
+tests/data/logs/*.log
+tests/data/configs_snapshot/*.conf
+
+# 临时文件
+*~
+*.swp
+*.swo
+.DS_Store
