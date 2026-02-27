@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**PQGM-IPSec** is an experimental post-quantum cryptography (PQC) implementation for IKEv2/IPsec based on **strongSwan 6.0+**. It integrates:
+**PQ-GM-IPSec & IKEv2** is an experimental post-quantum cryptography (PQC) implementation for IKEv2/IPsec based on **strongSwan 6.0+**. It integrates:
 - **PQC algorithms**: ML-KEM-768 (FIPS 203) + ML-DSA-65 (FIPS 204)
 - **Chinese cryptography**: SM2/SM3/SM4 (GB/T standards) via **GMSSL 3.1.3**
 - **Protocol extensions**: IKE_INTERMEDIATE (RFC 9242) + Multiple Key Exchanges/ADDKE (RFC 9370)

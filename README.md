@@ -1,6 +1,6 @@
-# PQGM-IPSec（Experimental）
+# PQ-GM-IPSec & IKEv2（Experimental）
 
-本项目基于 **strongSwan 6.0+** 实现一个“抗量子 + 国密特色”的 IKEv2/IPsec 实验原型（PQGM-IPSec）：
+本项目基于 **strongSwan 6.0+** 实现一个”抗量子 + 国密特色”的 IKEv2/IPsec 实验原型（PQ-GM-IPSec & IKEv2）：
 - IKEv2 主流程不变（RFC 7296）
 - 使用 IKE_INTERMEDIATE（RFC 9242）+ RFC 9370（ADDKE）实现多重密钥交换
 - ADDKE1：**SM2-KEM（私有 group=65001）**，共享秘密 **SK_sm2 = r_i || r_r**（r_len=32B）
